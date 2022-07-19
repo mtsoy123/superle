@@ -2,20 +2,28 @@ import React from 'react';
 import Tile from './Tile';
 import Character from './Character';
 
-function Grid() {
+function Grid({
+  characterId,
+  tiles,
+  openedTile,
+}) {
+  /* function flipTile(id) {
+
+  }
+    useEffect(() => {
+      tiles.forEach();
+    }, [win]);
+  */
+
+  function renderTiles(tilesArr) {
+    return tilesArr.map((item) => (<Tile key={item} id={item} openedTile={openedTile}/>));
+  }
+
   return (
     <div className="grid">
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
-      <Tile/>
+      {renderTiles(tiles)}
       <Character
-        // character={character}
+        characterId={characterId}
       />
     </div>
   );
