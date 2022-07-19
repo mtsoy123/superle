@@ -9,7 +9,7 @@ root = true
 # Possible values - tab, space
 indent_style = space
 
-# Indentation size in single-spaced characters
+# Indentation size in single-spaced charactersArray.js
 # Possible values - an integer, tab
 indent_size = 2
 

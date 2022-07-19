@@ -1,0 +1,25 @@
+.select-container {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: calc(100% - 32px);
+  /*padding: 16px;*/
+  margin-bottom: 24px;
+
+  border: 2px solid #FC6030;
+  border-radius: 6px;
+
+  background-color: #FDC429;
+  /*background-image: url("../../images/chevron.svg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position-x: calc(100% - 16px);*/
+  /*background-position-y: 50%;*/
+
+  box-shadow: 0 6px 0 #470504;
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #2A2A2A;
+}

@@ -1,1 +1,35 @@
 @import url('./vendor/normalize.css');
+@import url('./fonts/fonts.css');
+
+@import url('blocks/app/app.css');
+@import url('blocks/root/root.css');
+
+@import url('blocks/header/header.css');
+@import url('blocks/header/__button/header__button.css');
+@import url('blocks/header/__logo/header__logo.css');
+@import url('blocks/header/__button/_type/header__button_type_help.css');
+@import url('blocks/header/__button/_type/header__button_type_settings.css');
+
+@import url('blocks/grid/grid.css');
+@import url('blocks/grid/__tile/grid__tile.css');
+@import url('blocks/grid/__tile/_type/grid__tile_type_active.css');
+@import url('blocks/grid/__tile/_type/grid__tile_type_hidden.css');
+
+@import url('blocks/react-select/select-container.css');
+@import url('blocks/react-select/__controll/select__control.css');
+
+@import url('blocks/attempt/attempt.css');
+
+@import url('blocks/toast/toast.css');
+@import url('blocks/toast/__text/toast__text.css');
+
+@import url('blocks/character/character.css');
+
+@import url('blocks/guess-container/guess-container.css');
+@import url('blocks/guess-container/__guess/guess-container__guess.css');
+@import url('blocks/guess-container/__guess/_type/guess-container_type_correct.css');
+@import url('blocks/guess-container/__guess/_type/guess-container_type_incorrect.css');
+
+/*
+@import url('blocks/');
+*/

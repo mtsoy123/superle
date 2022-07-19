@@ -1,0 +1,5 @@
+.guess-container__guess_type_incorrect {
+  background-image: url(../../../../images/correct.svg);
+  width: 16px;
+  height: 16px;
+}

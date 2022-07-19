@@ -1,0 +1,33 @@
+import { React, useMemo } from 'react';
+import Select from 'react-select';
+import characterArray from '../utils/charactersArray';
+
+function Input() {
+
+  const sortedCharacters = useMemo(() => characterArray.sort()
+    .map((val) => ({
+      label: val.name,
+      value: val.name,
+    })), [characterArray]);
+
+  return (
+    <Select className="select-container" classNamePrefix="select"
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                neutral0: '#FDC429',
+                neutral50: '#2A2A2A',
+                neutral20: '#FC6030',
+                neutral60: '#FC6030',
+                neutral40: '#470504',
+                neutral30: '#470504',
+                primary: '#FC6030',
+                primary25: '#f68866',
+              },
+            })}
+            options={sortedCharacters}/>
+  );
+}
+
+export default Input;
