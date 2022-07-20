@@ -23,3 +23,7 @@
   line-height: 23px;
   color: #2A2A2A;
 }
+
+.select-container:hover {
+  box-shadow: 0 10px 0 #470504;
+}

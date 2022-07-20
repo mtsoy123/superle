@@ -8,17 +8,15 @@ import Attempt from './Attempt';
 import Toast from './Toast';
 import Guess from './Guess';
 import characterArray from '../utils/charactersArray';
-// import characterIdArray from '../utils/characterIdsArray';
-// import { api } from '../utils/Api';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
   // eslint-disable-next-line max-len
   const [characterId] = useState(() => characterArray[randomNumber(1, characterArray.length)].id);
-  const characterName = characterArray.find((item) => (item.id === characterId)).name;
   const [tiles] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [openedTile, setOpenedTile] = useState([]);
+  const characterName = characterArray.find((item) => (item.id === characterId)).name;
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
