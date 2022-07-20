@@ -17,6 +17,7 @@ function App() {
   const [tiles] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [openedTile, setOpenedTile] = useState([]);
   const characterName = characterArray.find((item) => (item.id === characterId)).name;
+  const [guess, setGuess] = useState([]);
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
@@ -24,10 +25,11 @@ function App() {
     return (openedTile.includes(tile) ? flipOneTile(tile) : setOpenedTile([...openedTile, tile]));
   }
 
-  function handleGuess(guess) {
-    if (guess === characterName) {
+  function handleGuess(characterGuess) {
+    setGuess([...guess, characterGuess]);
+
+    if (characterGuess === characterName) {
       setOpenedTile(tiles);
-      console.log(openedTile);
     } else {
       flipOneTile();
     }
@@ -45,8 +47,11 @@ function App() {
       <Input
         handleGuess={handleGuess}
       />
-      <Guess/>
-      <Attempt/>
+      <Guess
+        guess={guess}
+        characterName={characterName}
+      />
+      <Attempt openedTile={openedTile}/>
     </div>
   );
 }

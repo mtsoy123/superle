@@ -1,17 +1,19 @@
 import React from 'react';
 
-function Guess() {
+function Guess({
+  guess,
+  characterName,
+}) {
   return (
-    <div className="guess-container">
-      <div className="guess-container__guess">
-        <div className="guess-container__guess guess-container__guess_type_correct">
-
-        </div>
-        <div>
-          spiderman
-        </div>
-      </div>
-    </div>
+    <ul className="guess-container">
+      {guess.map((item, i) => (
+        <li className="guess-container__guess" key={i}>
+          <div
+            className={`guess-container__guess guess-container__guess_type_${item === characterName ? 'correct' : 'incorrect'}`}/>
+          {item}
+        </li>
+      ))}
+    </ul>
   );
 }
 
