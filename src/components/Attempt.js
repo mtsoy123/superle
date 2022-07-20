@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Attempt({ openedTile }) {
+function Attempt({ guesses }) {
   return (
-    <p className="attempt">Attempt {openedTile.length}/9</p>
+    <p className="attempt">Attempt {guesses}/9</p>
   );
 }
 

@@ -2,7 +2,11 @@ import { React, useMemo } from 'react';
 import Select from 'react-select';
 import characterArray from '../utils/charactersArray';
 
-function Input({ handleGuess }) {
+function Input({
+  handleGuess,
+  win,
+  openedTile,
+}) {
   const sortedCharacters = useMemo(() => characterArray.sort()
     .map((val) => ({
       label: val.name,
@@ -33,6 +37,7 @@ function Input({ handleGuess }) {
       })}
       options={sortedCharacters}
       onChange={handleChange}
+      isDisabled={win || (openedTile.length === 9)}
     />
   );
 }

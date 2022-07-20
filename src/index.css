@@ -22,6 +22,7 @@
 
 @import url('blocks/toast/toast.css');
 @import url('blocks/toast/__text/toast__text.css');
+@import url('blocks/toast/_type/toast_type_visible.css');
 
 @import url('blocks/character/character.css');
 

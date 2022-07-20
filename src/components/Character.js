@@ -9,7 +9,6 @@ function Character({ characterId }) {
   useEffect(() => {
     api.getCharacter(characterId)
       .then((res) => {
-        console.log(res);
         setSrc(`${res.data.results[0].thumbnail.path}.${res.data.results[0].thumbnail.extension}`);
       });
   }, []);

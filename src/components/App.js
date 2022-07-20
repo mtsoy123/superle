@@ -3,8 +3,8 @@ import '../index.css';
 import { useState } from 'react';
 import Header from './Header';
 import Grid from './Grid';
-import Input from './Input';
 import Attempt from './Attempt';
+import Input from './Input';
 import Toast from './Toast';
 import Guess from './Guess';
 import characterArray from '../utils/charactersArray';
@@ -18,6 +18,8 @@ function App() {
   const [openedTile, setOpenedTile] = useState([]);
   const characterName = characterArray.find((item) => (item.id === characterId)).name;
   const [guess, setGuess] = useState([]);
+  const [win, setWin] = useState(false);
+  const [guesses, setGuesses] = useState(0);
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
@@ -27,8 +29,9 @@ function App() {
 
   function handleGuess(characterGuess) {
     setGuess([...guess, characterGuess]);
-
+    setGuesses(guesses + 1);
     if (characterGuess === characterName) {
+      setWin(true);
       setOpenedTile(tiles);
     } else {
       flipOneTile();
@@ -37,7 +40,11 @@ function App() {
 
   return (
     <div className="app">
-      <Toast/>
+      <Toast
+        win={win}
+        characterName={characterName}
+        guesses={guesses}
+      />
       <Header/>
       <Grid
         characterId={characterId}
@@ -46,12 +53,16 @@ function App() {
       />
       <Input
         handleGuess={handleGuess}
+        win={win}
+        openedTile={openedTile}
       />
       <Guess
         guess={guess}
         characterName={characterName}
       />
-      <Attempt openedTile={openedTile}/>
+      <Attempt
+        guesses={guesses}
+      />
     </div>
   );
 }
