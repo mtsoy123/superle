@@ -10,7 +10,6 @@ function Input({ handleGuess }) {
     })), [characterArray]);
 
   function handleChange(event) {
-    console.log(event.value);
     handleGuess(event.value);
   }
 

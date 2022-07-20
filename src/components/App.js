@@ -16,13 +16,9 @@ function App() {
 
   // eslint-disable-next-line max-len
   const [characterId] = useState(() => characterArray[randomNumber(1, characterArray.length)].id);
-  // const [win, setWin] = useState(false);
+  const characterName = characterArray.find((item) => (item.id === characterId)).name;
   const [tiles] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [openedTile, setOpenedTile] = useState([]);
-
-  /*   function win() {
-      flipTile(all);
-    } */
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
@@ -31,9 +27,9 @@ function App() {
   }
 
   function handleGuess(guess) {
-    console.log(characterId);
-    if (guess === characterId) {
-      setOpenedTile([tiles]);
+    if (guess === characterName) {
+      setOpenedTile(tiles);
+      console.log(openedTile);
     } else {
       flipOneTile();
     }
@@ -45,8 +41,6 @@ function App() {
       <Header/>
       <Grid
         characterId={characterId}
-        // fliptile={fliptile}
-        // win={win}
         tiles={tiles}
         openedTile={openedTile}
       />

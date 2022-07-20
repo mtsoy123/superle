@@ -7,14 +7,6 @@ function Grid({
   tiles,
   openedTile,
 }) {
-  /* function flipTile(id) {
-
-  }
-    useEffect(() => {
-      tiles.forEach();
-    }, [win]);
-  */
-
   function renderTiles(tilesArr) {
     return tilesArr.map((item) => (<Tile key={item} id={item} openedTile={openedTile}/>));
   }
