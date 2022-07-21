@@ -4,8 +4,7 @@ import characterArray from '../utils/charactersArray';
 
 function Input({
   handleGuess,
-  win,
-  openedTile,
+  result,
 }) {
   const sortedCharacters = useMemo(() => characterArray.sort()
     .map((val) => ({
@@ -37,7 +36,7 @@ function Input({
       })}
       options={sortedCharacters}
       onChange={handleChange}
-      isDisabled={win || (openedTile.length === 9)}
+      isDisabled={result !== null}
     />
   );
 }

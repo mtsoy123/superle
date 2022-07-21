@@ -1,6 +1,4 @@
-// import React from 'react';
 import { React, useEffect, useState } from 'react';
-// import characterArray from '../utils/charactersArray';
 import { api } from '../utils/Api';
 
 function Character({ characterId }) {

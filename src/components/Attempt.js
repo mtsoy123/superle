@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Attempt({ guesses }) {
+function Attempt({ guess }) {
   return (
-    <p className="attempt">Attempt {guesses}/9</p>
+    <p className="attempt">Attempt {guess.length}/9</p>
   );
 }
 

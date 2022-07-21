@@ -1,6 +1,6 @@
 import '../index.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import Grid from './Grid';
 import Attempt from './Attempt';
@@ -8,6 +8,8 @@ import Input from './Input';
 import Toast from './Toast';
 import Guess from './Guess';
 import characterArray from '../utils/charactersArray';
+import { saveGuesses } from './saveLocal';
+import currentDate from './date';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
@@ -18,32 +20,54 @@ function App() {
   const [openedTile, setOpenedTile] = useState([]);
   const characterName = characterArray.find((item) => (item.id === characterId)).name;
   const [guess, setGuess] = useState([]);
-  const [win, setWin] = useState(false);
-  const [guesses, setGuesses] = useState(0);
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    if (result === 'win') {
+      saveGuesses(currentDate, guess, result);
+      return;
+    }
+
+    if (openedTile.length === tiles.length) {
+      setResult('lose');
+      saveGuesses(currentDate, guess, result);
+    }
+  }, [openedTile]);
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
     // eslint-disable-next-line max-len
-    return (openedTile.includes(tile) ? flipOneTile(tile) : setOpenedTile([...openedTile, tile]));
+    if (openedTile.includes(tile)) {
+      console.log(12);
+      flipOneTile();
+    } else {
+      setOpenedTile([...openedTile, tile]);
+    }
   }
 
   function handleGuess(characterGuess) {
     setGuess([...guess, characterGuess]);
-    setGuesses(guesses + 1);
     if (characterGuess === characterName) {
-      setWin(true);
+      setResult('win');
       setOpenedTile(tiles);
+      // saveGuesses(currentDate, guess);
     } else {
       flipOneTile();
     }
   }
 
+  /*
+      function final() {
+
+      }
+    */
+
   return (
     <div className="app">
       <Toast
-        win={win}
+        result={result}
         characterName={characterName}
-        guesses={guesses}
+        guess={guess}
       />
       <Header/>
       <Grid
@@ -53,7 +77,7 @@ function App() {
       />
       <Input
         handleGuess={handleGuess}
-        win={win}
+        result={result}
         openedTile={openedTile}
       />
       <Guess
@@ -61,7 +85,7 @@ function App() {
         characterName={characterName}
       />
       <Attempt
-        guesses={guesses}
+        guess={guess}
       />
     </div>
   );
