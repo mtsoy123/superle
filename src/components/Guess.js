@@ -5,7 +5,7 @@ function Guess({
   characterName,
 }) {
   return (
-    <ul className="guess-container">
+    <ul className={`guess-container ${guess.length !== 0 && 'guess-container_visible'}`}>
       {guess.map((item, i) => (
         <li className="guess-container__guess" key={i}>
           <div

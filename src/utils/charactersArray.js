@@ -56,10 +56,6 @@ const characterArray = [
     id: '1009464',
   },
   {
-    name: 'Okoye',
-    id: '1017840',
-  },
-  {
     name: 'Wasp',
     id: '1009707',
   },

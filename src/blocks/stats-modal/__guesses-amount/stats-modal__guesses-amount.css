@@ -1,0 +1,13 @@
+.stats-modal__guesses-amount {
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  z-index: 2;
+  color: #FFFFFF;
+
+  position: absolute;
+  left: 40px;
+}

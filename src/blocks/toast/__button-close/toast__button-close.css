@@ -1,0 +1,15 @@
+.toast__button-close {
+  background-image: url("../../../images/close.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  cursor: pointer;
+
+  width: 16px;
+  height: 16px;
+  padding: 0;
+
+  position: absolute;
+  right: 24px;
+}

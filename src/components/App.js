@@ -8,8 +8,10 @@ import Input from './Input';
 import Toast from './Toast';
 import Guess from './Guess';
 import characterArray from '../utils/charactersArray';
-import { saveGuesses } from './saveLocal';
+import { saveGuesses } from '../utils/saveLocal';
 import currentDate from './date';
+import StatsModal from './StatsModal';
+import TutorialModal from './TutorialModal';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
@@ -21,28 +23,33 @@ function App() {
   const characterName = characterArray.find((item) => (item.id === characterId)).name;
   const [guess, setGuess] = useState([]);
   const [result, setResult] = useState(null);
+  const [statsModalActive, setStatsModalActive] = useState(false);
+  const [isToastActive, setIsToastActive] = useState(false);
+  const [tutorialModalActive, setTutorialModalActive] = useState(false);
+
+  function endGame() {
+    saveGuesses(currentDate, guess, result);
+    setIsToastActive(true);
+    setTimeout(() => {
+      setStatsModalActive(true);
+    }, 2500);
+  }
 
   useEffect(() => {
     if (result === 'win') {
-      saveGuesses(currentDate, guess, result);
+      endGame();
       return;
     }
 
     if (openedTile.length === tiles.length) {
       setResult('lose');
-      saveGuesses(currentDate, guess, result);
+      endGame();
     }
   }, [openedTile]);
 
   function flipOneTile() {
     const tile = randomNumber(1, tiles.length);
-    // eslint-disable-next-line max-len
-    if (openedTile.includes(tile)) {
-      console.log(12);
-      flipOneTile();
-    } else {
-      setOpenedTile([...openedTile, tile]);
-    }
+    return openedTile.includes(tile) ? flipOneTile() : setOpenedTile([...openedTile, tile]);
   }
 
   function handleGuess(characterGuess) {
@@ -50,26 +57,44 @@ function App() {
     if (characterGuess === characterName) {
       setResult('win');
       setOpenedTile(tiles);
-      // saveGuesses(currentDate, guess);
     } else {
       flipOneTile();
     }
   }
 
-  /*
-      function final() {
+  function closeModal() {
+    setStatsModalActive(false);
+    setTutorialModalActive(false);
+  }
 
-      }
-    */
+  function playAgain() {
+    setOpenedTile([]);
+    setGuess([]);
+    setResult(null);
+    setStatsModalActive(false);
+    setIsToastActive(false);
+  }
 
   return (
     <div className="app">
-      <Toast
-        result={result}
-        characterName={characterName}
-        guess={guess}
+      <StatsModal
+        statsModalActive={statsModalActive}
+        closeModal={closeModal}
       />
-      <Header/>
+      <TutorialModal
+        tutorialModalActive={tutorialModalActive}
+        closeModal={closeModal}
+      />
+      <Toast
+        isToastActive={isToastActive}
+        setIsToastActive={setIsToastActive}
+        characterName={characterName}
+        result={result}
+      />
+      <Header
+        setStatsModalActive={setStatsModalActive}
+        setTutorialModalActive={setTutorialModalActive}
+      />
       <Grid
         characterId={characterId}
         tiles={tiles}

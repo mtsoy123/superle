@@ -23,13 +23,32 @@
 @import url('blocks/toast/toast.css');
 @import url('blocks/toast/__text/toast__text.css');
 @import url('blocks/toast/_type/toast_type_visible.css');
+@import url('blocks/toast/__button-close/toast__button-close.css');
 
 @import url('blocks/character/character.css');
 
 @import url('blocks/guess-container/guess-container.css');
+@import url('blocks/guess-container/_visible/guess-container_visible.css');
 @import url('blocks/guess-container/__guess/guess-container__guess.css');
 @import url('blocks/guess-container/__guess/_type/guess-container_type_correct.css');
 @import url('blocks/guess-container/__guess/_type/guess-container_type_incorrect.css');
+
+@import url('blocks/modal/modal.css');
+@import url('blocks/modal/__content/modal__content.css');
+@import url('blocks/modal/__header/modal__header.css');
+@import url('blocks/modal/__single-stat/modal__single-stat.css');
+@import url('blocks/modal/__button-close/modal__button-close.css');
+@import url('blocks/modal/__header-container/modal__header-container.css');
+
+@import url('blocks/stats-modal/stats-modal.css');
+@import url('blocks/stats-modal/__statistics-container/stats-modal__statistics-container.css');
+@import url('blocks/stats-modal/__result/stats-modal__result.css');
+@import url('blocks/stats-modal/__guess-graph/stats-modal__guess-graph.css');
+@import url('blocks/stats-modal/__guess-container/stats-modal__guess-container.css');
+@import url('blocks/stats-modal/__button/stats-modal__button.css');
+@import url('blocks/stats-modal/__guess-container/stats-modal__guess-container.css');
+@import url('blocks/stats-modal/__guesses/stats-modal__guesses.css');
+@import url('blocks/stats-modal/__guesses-amount/stats-modal__guesses-amount.css');
 
 /*
 @import url('blocks/');

@@ -1,0 +1,24 @@
+.stats-modal__button {
+  width: 100%;
+
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #2A2A2A;
+
+  background: #FDC429;
+  border: 2px solid #FC6030;
+  box-shadow: 0 4px 0 #470504;
+  border-radius: 6px;
+
+  padding: 16px;
+}
+
+.stats-modal__button:hover {
+  background: #470504;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}

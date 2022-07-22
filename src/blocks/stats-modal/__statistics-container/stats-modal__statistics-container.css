@@ -1,0 +1,8 @@
+.stats-modal__statistics-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+
+  margin: 0;
+  padding-left: 0;
+}

@@ -1,0 +1,8 @@
+.stats-modal__guess-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  position: relative;
+}

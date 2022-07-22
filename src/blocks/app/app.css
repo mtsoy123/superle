@@ -3,10 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-  position: absolute;
-  left: 50%;
-  top: 100px;
-  transform: translate(-50%, 0);
+  max-width: 344px;
+  margin: 100px auto;
 }

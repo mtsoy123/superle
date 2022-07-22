@@ -1,0 +1,11 @@
+.stats-modal__guesses {
+  padding: 8px 20px 8px 0;
+
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #2A2A2A;
+}

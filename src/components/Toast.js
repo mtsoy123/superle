@@ -2,21 +2,27 @@ import React from 'react';
 
 function Toast({
   characterName,
+  isToastActive,
+  setIsToastActive,
   result,
 }) {
-  function emoji() {
-    console.log(result);
+  function setEmoji() {
     if (result === 'win') {
       return `🎉 ${characterName} 🎉`;
     }
     return `😭 ${characterName} 😭`;
   }
 
+  function closeToast() {
+    setIsToastActive(false);
+  }
+
   return (
-    <div className={`toast ${result && 'toast_type_visible'}`}>
+    <div className={`toast ${isToastActive && 'toast_type_visible'}`}>
       <div className="toast__text">
-        {emoji()}
+        {setEmoji()}
       </div>
+      <div onClick={closeToast} className="toast__button-close"/>
     </div>
   );
 }
