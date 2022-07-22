@@ -6,3 +6,7 @@
 
   position: relative;
 }
+
+.stats-modal__guess-container:last-child {
+  padding-bottom: 24px;
+}

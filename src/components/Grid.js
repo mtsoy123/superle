@@ -6,6 +6,7 @@ function Grid({
   characterId,
   tiles,
   openedTile,
+  src,
 }) {
   function renderTiles(tilesArr) {
     return tilesArr.map((item) => (<Tile key={item} id={item} openedTile={openedTile}/>));
@@ -16,6 +17,7 @@ function Grid({
       {renderTiles(tiles)}
       <Character
         characterId={characterId}
+        src={src}
       />
     </div>
   );

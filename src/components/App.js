@@ -9,30 +9,73 @@ import Toast from './Toast';
 import Guess from './Guess';
 import characterArray from '../utils/charactersArray';
 import { saveGuesses } from '../utils/saveLocal';
-import currentDate from './date';
+import getCurrentDate from '../utils/date';
 import StatsModal from './StatsModal';
 import TutorialModal from './TutorialModal';
+import { api } from '../utils/Api';
+import PlayAgainButton from './PlayAgainButton';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
-
   // eslint-disable-next-line max-len
-  const [characterId] = useState(() => characterArray[randomNumber(1, characterArray.length)].id);
+  const [characterId, setCharacterId] = useState(() => characterArray[randomNumber(1, characterArray.length)].id);
   const [tiles] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [openedTile, setOpenedTile] = useState([]);
-  const characterName = characterArray.find((item) => (item.id === characterId)).name;
+  // eslint-disable-next-line max-len
+  const [characterName, setCharacterName] = useState(() => characterArray.find((item) => (item.id === characterId)).name);
   const [guess, setGuess] = useState([]);
   const [result, setResult] = useState(null);
   const [statsModalActive, setStatsModalActive] = useState(false);
   const [isToastActive, setIsToastActive] = useState(false);
   const [tutorialModalActive, setTutorialModalActive] = useState(false);
+  const [src, setSrc] = useState(null);
+
+  function callApi() {
+    return api.getCharacter(characterId)
+      .then((res) => {
+        setSrc(`${res.data.results[0].thumbnail.path}.${res.data.results[0].thumbnail.extension}`);
+      });
+  }
+
+  function playAgain() {
+    setOpenedTile([]);
+    setGuess([]);
+    setResult(null);
+    setStatsModalActive(false);
+    setIsToastActive(false);
+    setCharacterId(() => characterArray[randomNumber(1, characterArray.length)].id);
+  }
+
+  useEffect(() => {
+    console.log(characterId);
+    setCharacterName(() => characterArray.find((item) => (item.id === characterId)).name);
+    callApi();
+  }, [characterId]);
 
   function endGame() {
-    saveGuesses(currentDate, guess, result);
+    saveGuesses(getCurrentDate(), guess, result);
     setIsToastActive(true);
     setTimeout(() => {
       setStatsModalActive(true);
     }, 2500);
+  }
+
+  function flipOneTile() {
+    const tile = randomNumber(1, tiles.length);
+    return openedTile.includes(tile) ? flipOneTile() : setOpenedTile([...openedTile, tile]);
+  }
+
+  function handleGuess(characterGuess) {
+    setGuess([...guess, characterGuess]);
+    if (characterGuess === characterName) {
+      setResult('win');
+      setOpenedTile(tiles);
+    } else {
+      flipOneTile();
+      if ((openedTile.length + 1) === tiles.length) {
+        setResult('lose');
+      }
+    }
   }
 
   useEffect(() => {
@@ -47,32 +90,9 @@ function App() {
     }
   }, [openedTile]);
 
-  function flipOneTile() {
-    const tile = randomNumber(1, tiles.length);
-    return openedTile.includes(tile) ? flipOneTile() : setOpenedTile([...openedTile, tile]);
-  }
-
-  function handleGuess(characterGuess) {
-    setGuess([...guess, characterGuess]);
-    if (characterGuess === characterName) {
-      setResult('win');
-      setOpenedTile(tiles);
-    } else {
-      flipOneTile();
-    }
-  }
-
   function closeModal() {
     setStatsModalActive(false);
     setTutorialModalActive(false);
-  }
-
-  function playAgain() {
-    setOpenedTile([]);
-    setGuess([]);
-    setResult(null);
-    setStatsModalActive(false);
-    setIsToastActive(false);
   }
 
   return (
@@ -80,6 +100,7 @@ function App() {
       <StatsModal
         statsModalActive={statsModalActive}
         closeModal={closeModal}
+        playAgain={playAgain}
       />
       <TutorialModal
         tutorialModalActive={tutorialModalActive}
@@ -99,6 +120,7 @@ function App() {
         characterId={characterId}
         tiles={tiles}
         openedTile={openedTile}
+        src={src}
       />
       <Input
         handleGuess={handleGuess}
@@ -111,6 +133,10 @@ function App() {
       />
       <Attempt
         guess={guess}
+      />
+      <PlayAgainButton
+        playAgain={playAgain}
+        result={result}
       />
     </div>
   );

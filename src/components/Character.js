@@ -1,16 +1,8 @@
-import { React, useEffect, useState } from 'react';
-import { api } from '../utils/Api';
+import { React } from 'react';
 
-function Character({ characterId }) {
-  const [src, setSrc] = useState(null);
+// import { api } from '../utils/Api';
 
-  useEffect(() => {
-    api.getCharacter(characterId)
-      .then((res) => {
-        setSrc(`${res.data.results[0].thumbnail.path}.${res.data.results[0].thumbnail.extension}`);
-      });
-  }, []);
-
+function Character({ src }) {
   return (
     <img src={src} className="character" alt="Marvel character"/>
   );

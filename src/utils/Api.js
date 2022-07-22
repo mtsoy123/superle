@@ -26,6 +26,6 @@ export const api = new Api({
   baseUrl: 'http://gateway.marvel.com/v1/public/',
   headers: {
     'Content-Type': 'application/json',
-    apikey: '95e8f2e8cf11967e5b1a4241df30953602dd4b12',
+    apikey: process.env.REACT_APP_API_KEY,
   },
 });

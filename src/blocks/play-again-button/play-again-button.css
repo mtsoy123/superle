@@ -1,4 +1,4 @@
-.stats-modal__button {
+.play-again-button {
   width: 100%;
 
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
@@ -17,8 +17,10 @@
   padding: 16px;
 }
 
-.stats-modal__button:hover {
+.play-again-button:hover {
   background: #470504;
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
+
+  cursor: pointer;
 }

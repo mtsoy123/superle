@@ -1,10 +1,12 @@
 import React from 'react';
 import Modal from './Modal';
 import statsData from '../utils/stats';
+import PlayAgainButton from './PlayAgainButton';
 
 function StatsModal({
   statsModalActive,
   closeModal,
+  playAgain,
 }) {
   const {
     currentStreak,
@@ -77,10 +79,12 @@ function StatsModal({
             Guess Distribution
           </h2>
         </div>
-        {renderGraph(guessDistribution)}
-        <button className="stats-modal__button">
-          Play Again
-        </button>
+        <div className="stats-modal__graph-container">
+          {renderGraph(guessDistribution)}
+        </div>
+        <PlayAgainButton
+          playAgain={playAgain}
+        />
       </div>
     </Modal>
   );

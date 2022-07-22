@@ -45,10 +45,11 @@
 @import url('blocks/stats-modal/__result/stats-modal__result.css');
 @import url('blocks/stats-modal/__guess-graph/stats-modal__guess-graph.css');
 @import url('blocks/stats-modal/__guess-container/stats-modal__guess-container.css');
-@import url('blocks/stats-modal/__button/stats-modal__button.css');
-@import url('blocks/stats-modal/__guess-container/stats-modal__guess-container.css');
 @import url('blocks/stats-modal/__guesses/stats-modal__guesses.css');
 @import url('blocks/stats-modal/__guesses-amount/stats-modal__guesses-amount.css');
+
+@import url('blocks/play-again-button/play-again-button.css');
+@import url('blocks/play-again-button/_hidden/play-again-button_hidden.css');
 
 /*
 @import url('blocks/');
