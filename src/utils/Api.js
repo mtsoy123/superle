@@ -23,7 +23,7 @@ class Api {
 
 // eslint-disable-next-line import/prefer-default-export
 export const api = new Api({
-  baseUrl: 'http://gateway.marvel.com/v1/public/',
+  baseUrl: 'https://gateway.marvel.com/v1/public/',
   headers: {
     'Content-Type': 'application/json',
     apikey: process.env.REACT_APP_API_KEY,
