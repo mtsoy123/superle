@@ -1,124 +1,124 @@
 const characterArray = [
   {
-    name: 'Star-Lord',
-    id: '1010733',
+    'name': 'Ant-Man',
+    'id': '1010802'
   },
   {
-    name: 'Rocket Racoon',
-    id: '1010744',
+    'name': 'Black Panther',
+    'id': '1009187'
   },
   {
-    name: 'Groot',
-    id: '1010743',
+    'name': 'Captain America',
+    'id': '1009220'
   },
   {
-    name: 'Gamora',
-    id: '1010763',
+    'name': 'Doctor Octopus',
+    'id': '1009276'
   },
   {
-    name: 'Drax',
-    id: '1010735',
+    'name': 'Doctor Strange',
+    'id': '1009282'
   },
   {
-    name: 'Mantis',
-    id: '1011026',
+    'name': 'Drax',
+    'id': '1010735'
   },
   {
-    name: 'Ronan',
-    id: '1010344',
+    'name': 'Falcon',
+    'id': '1009297'
   },
   {
-    name: 'Venom',
-    id: '1009663',
+    'name': 'Gamora',
+    'id': '1010763'
   },
   {
-    name: 'Green Goblin',
-    id: '1014985',
+    'name': 'Green Goblin',
+    'id': '1014985'
   },
   {
-    name: 'Lizard',
-    id: '1009404',
+    'name': 'Groot',
+    'id': '1010743'
   },
   {
-    name: 'Doctor Octopus',
-    id: '1009276',
+    'name': 'Hawkeye',
+    'id': '1009338'
   },
   {
-    name: 'Rhino',
-    id: '1009537',
+    'name': 'Hulk',
+    'id': '1009351'
   },
   {
-    name: 'Scorpio',
-    id: '1010790',
+    'name': 'Iron Man',
+    'id': '1009368'
   },
   {
-    name: 'Mysterio',
-    id: '1009464',
+    'name': 'Lizard',
+    'id': '1009404'
   },
   {
-    name: 'Wasp',
-    id: '1009707',
+    'name': 'Mantis',
+    'id': '1011026'
   },
   {
-    name: 'Winter Soldier',
-    id: '1010740',
+    'name': 'Maria Hill',
+    'id': '1011335'
   },
   {
-    name: 'Falcon',
-    id: '1009297',
+    'name': 'Mysterio',
+    'id': '1009464'
   },
   {
-    name: 'Maria Hill',
-    id: '1011335',
+    'name': 'Nick Fury',
+    'id': '1009471'
   },
   {
-    name: 'War Machine',
-    id: '1017322',
+    'name': 'Rhino',
+    'id': '1009537'
   },
   {
-    name: 'Vision',
-    id: '1009697',
+    'name': 'Rocket Racoon',
+    'id': '1010744'
   },
   {
-    name: 'Nick Fury',
-    id: '1009471',
+    'name': 'Ronan',
+    'id': '1010344'
   },
   {
-    name: 'Hawkeye',
-    id: '1009338',
+    'name': 'Scorpio',
+    'id': '1010790'
   },
   {
-    name: 'Doctor Strange',
-    id: '1009282',
+    'name': 'Spider-man',
+    'id': '1009610'
   },
   {
-    name: 'Ant-Man',
-    id: '1010802',
+    'name': 'Star-Lord',
+    'id': '1010733'
   },
   {
-    name: 'Thor',
-    id: '1009664',
+    'name': 'Thor',
+    'id': '1009664'
   },
   {
-    name: 'Captain America',
-    id: '1009220',
+    'name': 'Venom',
+    'id': '1009663'
   },
   {
-    name: 'Black Panther',
-    id: '1009187',
+    'name': 'Vision',
+    'id': '1009697'
   },
   {
-    name: 'Iron Man',
-    id: '1009368',
+    'name': 'War Machine',
+    'id': '1017322'
   },
   {
-    name: 'Spider-man',
-    id: '1009610',
+    'name': 'Wasp',
+    'id': '1009707'
   },
   {
-    name: 'Hulk',
-    id: '1009351',
-  },
+    'name': 'Winter Soldier',
+    'id': '1010740'
+  }
 ];
 
 export default characterArray;

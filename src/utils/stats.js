@@ -5,7 +5,6 @@ function statsData() {
 
   const allGuessesEntries = Object.entries(allGuesses);
   const played = allGuessesEntries.length;
-  // console.log(allGuessesEntries);
   const guessDistribution = {
     1: 0,
     2: 0,
@@ -22,11 +21,9 @@ function statsData() {
   let maxStreak = 0;
 
   allGuessesEntries.forEach((item) => {
-    const won = item[1].result;
-    // console.log(won);
-    if (won) {
+    const result = item[1].result;
+    if (result === 'win') {
       const winIndex = item[1].guesses.length;
-      // console.log(winIndex);
       guessDistribution[winIndex] += 1;
 
       if (allGuessesEntries[allGuessesEntries.length - 1][1].result === 'win') {

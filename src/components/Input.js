@@ -1,11 +1,14 @@
-import { React, useMemo } from 'react';
+import { React, useMemo, useState } from 'react';
 import Select from 'react-select';
 import characterArray from '../utils/charactersArray';
 
 function Input({
   handleGuess,
   result,
+  currentGuess,
+  setCurrentGuess
 }) {
+
   const sortedCharacters = useMemo(() => characterArray.sort()
     .map((val) => ({
       label: val.name,
@@ -14,6 +17,7 @@ function Input({
 
   function handleChange(event) {
     handleGuess(event.value);
+
   }
 
   return (
@@ -34,6 +38,7 @@ function Input({
           primary25: '#f68866',
         },
       })}
+      value={currentGuess}
       options={sortedCharacters}
       onChange={handleChange}
       isDisabled={result !== null}

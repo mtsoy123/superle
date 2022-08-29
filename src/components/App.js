@@ -14,14 +14,13 @@ import StatsModal from './StatsModal';
 import TutorialModal from './TutorialModal';
 import { api } from '../utils/Api';
 import PlayAgainButton from './PlayAgainButton';
+import { specialChars } from '@testing-library/user-event';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
-  // eslint-disable-next-line max-len
   const [characterId, setCharacterId] = useState(() => characterArray[randomNumber(1, characterArray.length)].id);
   const [tiles] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [openedTile, setOpenedTile] = useState([]);
-  // eslint-disable-next-line max-len
   const [characterName, setCharacterName] = useState(() => characterArray.find((item) => (item.id === characterId)).name);
   const [guess, setGuess] = useState([]);
   const [result, setResult] = useState(null);
@@ -29,6 +28,7 @@ function App() {
   const [isToastActive, setIsToastActive] = useState(false);
   const [tutorialModalActive, setTutorialModalActive] = useState(false);
   const [src, setSrc] = useState(null);
+  const [currentGuess, setCurrentGuess] = useState('');
 
   useEffect(() => {
     setCharacterName(() => characterArray.find((item) => (item.id === characterId)).name);
@@ -60,6 +60,7 @@ function App() {
     setResult(null);
     setStatsModalActive(false);
     setIsToastActive(false);
+    setCurrentGuess('');
     setCharacterId(() => characterArray[randomNumber(1, characterArray.length)].id);
   }
 
@@ -77,6 +78,10 @@ function App() {
   }
 
   function handleGuess(characterGuess) {
+    setCurrentGuess({
+      'label': characterGuess,
+      'value': characterGuess
+    });
     setGuess([...guess, characterGuess]);
     if (characterGuess === characterName) {
       setResult('win');
@@ -124,7 +129,8 @@ function App() {
       <Input
         handleGuess={handleGuess}
         result={result}
-        openedTile={openedTile}
+        currentGuess={currentGuess}
+        setCurrentGuess={setCurrentGuess}
       />
       <Guess
         guess={guess}
