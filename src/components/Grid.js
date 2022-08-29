@@ -8,6 +8,7 @@ function Grid({
   openedTile,
   src,
 }) {
+  
   function renderTiles(tilesArr) {
     return tilesArr.map((item) => (<Tile key={item} id={item} openedTile={openedTile}/>));
   }

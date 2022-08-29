@@ -30,6 +30,23 @@ function App() {
   const [tutorialModalActive, setTutorialModalActive] = useState(false);
   const [src, setSrc] = useState(null);
 
+  useEffect(() => {
+    setCharacterName(() => characterArray.find((item) => (item.id === characterId)).name);
+    callApi();
+  }, [characterId]);
+
+  useEffect(() => {
+    if (result === 'win') {
+      endGame();
+      return;
+    }
+
+    if (openedTile.length === tiles.length) {
+      setResult('lose');
+      endGame();
+    }
+  }, [openedTile]);
+
   function callApi() {
     return api.getCharacter(characterId)
       .then((res) => {
@@ -45,12 +62,6 @@ function App() {
     setIsToastActive(false);
     setCharacterId(() => characterArray[randomNumber(1, characterArray.length)].id);
   }
-
-  useEffect(() => {
-    console.log(characterId);
-    setCharacterName(() => characterArray.find((item) => (item.id === characterId)).name);
-    callApi();
-  }, [characterId]);
 
   function endGame() {
     saveGuesses(getCurrentDate(), guess, result);
@@ -78,25 +89,13 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    if (result === 'win') {
-      endGame();
-      return;
-    }
-
-    if (openedTile.length === tiles.length) {
-      setResult('lose');
-      endGame();
-    }
-  }, [openedTile]);
-
   function closeModal() {
     setStatsModalActive(false);
     setTutorialModalActive(false);
   }
 
   return (
-    <div className="app">
+    <div className={`app ${(statsModalActive || tutorialModalActive) && 'app_type_menu-opened'}`}>
       <StatsModal
         statsModalActive={statsModalActive}
         closeModal={closeModal}

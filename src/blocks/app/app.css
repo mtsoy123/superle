@@ -1,8 +1,21 @@
 .app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 344px;
-  margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 344px;
+    margin: 100px auto 0 auto;
+
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app_type_menu-opened {
+    position: fixed;
+    left: calc(50% - 172px);
+    top: 0;
+}
+
+* {
+    outline: 1px solid #f00 !important;
 }
