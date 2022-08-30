@@ -1,19 +1,19 @@
 .toast {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
 
-  width: 344px;
-  height: 68px;
+    width: 344px;
+    height: 68px;
 
-  background: #FDC429;
-  border: 2px solid #FC6030;
-  box-shadow: 0 6px 0 #470504;
-  border-radius: 6px;
+    background: #FDC429;
+    border: 2px solid #FC6030;
+    box-shadow: 0 6px 0 #470504;
+    border-radius: 6px;
 
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translate(-50%, 0);
+    position: absolute;
+    top: -85px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

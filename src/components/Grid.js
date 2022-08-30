@@ -8,19 +8,19 @@ function Grid({
   openedTile,
   src,
 }) {
-  
+
   function renderTiles(tilesArr) {
     return tilesArr.map((item) => (<Tile key={item} id={item} openedTile={openedTile}/>));
   }
 
   return (
-    <div className="grid">
+    <section className="grid">
       {renderTiles(tiles)}
       <Character
         characterId={characterId}
         src={src}
       />
-    </div>
+    </section>
   );
 }
 

@@ -15,6 +15,7 @@ import TutorialModal from './TutorialModal';
 import { api } from '../utils/Api';
 import PlayAgainButton from './PlayAgainButton';
 import { specialChars } from '@testing-library/user-event';
+import Footer from './Footer';
 
 function App() {
   const randomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
@@ -100,50 +101,54 @@ function App() {
   }
 
   return (
-    <div className={`app ${(statsModalActive || tutorialModalActive) && 'app_type_menu-opened'}`}>
-      <StatsModal
-        statsModalActive={statsModalActive}
-        closeModal={closeModal}
-        playAgain={playAgain}
-      />
-      <TutorialModal
-        tutorialModalActive={tutorialModalActive}
-        closeModal={closeModal}
-      />
-      <Toast
-        isToastActive={isToastActive}
-        setIsToastActive={setIsToastActive}
-        characterName={characterName}
-        result={result}
-      />
-      <Header
-        setStatsModalActive={setStatsModalActive}
-        setTutorialModalActive={setTutorialModalActive}
-      />
-      <Grid
-        characterId={characterId}
-        tiles={tiles}
-        openedTile={openedTile}
-        src={src}
-      />
-      <Input
-        handleGuess={handleGuess}
-        result={result}
-        currentGuess={currentGuess}
-        setCurrentGuess={setCurrentGuess}
-      />
-      <Guess
-        guess={guess}
-        characterName={characterName}
-      />
-      <Attempt
-        guess={guess}
-      />
-      <PlayAgainButton
-        playAgain={playAgain}
-        result={result}
-      />
-    </div>
+    <>
+      <main
+        className={`app ${(statsModalActive || tutorialModalActive) && 'app_type_menu-opened'}`}>
+        <StatsModal
+          statsModalActive={statsModalActive}
+          closeModal={closeModal}
+          playAgain={playAgain}
+        />
+        <TutorialModal
+          tutorialModalActive={tutorialModalActive}
+          closeModal={closeModal}
+        />
+        <Toast
+          isToastActive={isToastActive}
+          setIsToastActive={setIsToastActive}
+          characterName={characterName}
+          result={result}
+        />
+        <Header
+          setStatsModalActive={setStatsModalActive}
+          setTutorialModalActive={setTutorialModalActive}
+        />
+        <Grid
+          characterId={characterId}
+          tiles={tiles}
+          openedTile={openedTile}
+          src={src}
+        />
+        <Input
+          handleGuess={handleGuess}
+          result={result}
+          currentGuess={currentGuess}
+          setCurrentGuess={setCurrentGuess}
+        />
+        <Guess
+          guess={guess}
+          characterName={characterName}
+        />
+        <Attempt
+          guess={guess}
+        />
+        <PlayAgainButton
+          playAgain={playAgain}
+          result={result}
+        />
+        <Footer/>
+      </main>
+    </>
   );
 }
 
