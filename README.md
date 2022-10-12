@@ -8,25 +8,22 @@ https://superle.vercel.app
 
 `npm run start`
 
-## О проекте
+## About Project
+Superle is a Marvel character guessing game. The game is inspired by Wordle. The player has 9 attempts to guess the hidden character from the Marvel universe. With each attempt, a part of the character's portrait opens.
 
-Superle — игра по угадыванию персонажей Marvel. Игра вдохновлена Wordle. У игрока 9 попыток, чтобы угадать загаданного
-персонажа из вселенной Marvel. С каждой попыткой открывается часть портрета персонажа.
+The goal of the project is to hone skills with BEM, React.js, HTML, CSS, JS.
 
-Цель проекта — отточить навыки с БЭМ, React.js, HTML, CSS, JS.
+## Features
 
-## Функционал
+Game flow, game statistics, start a new game
 
-Флоу игры, статистика по играм, начать новую игру
-
-## Технологии
-
+## Tech Stack
 * HTML
 * CSS
 * JavaScript
 * React.js
 
-## Использованные ресурсы
+## Resources used
 
 ### Marvel Comics Api
 
